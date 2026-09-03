@@ -1,0 +1,42 @@
+import { Router } from "express";
+import authRoutes from "./auth/auth.route";
+import userRoutes from "./auth/user.route";
+import roleRoutes from "./auth/role.route";
+import permissionRoutes from "./auth/permission.route";
+import auditLogRoutes from "./auth/auditLog.routes";
+import sessionRoutes from "./auth/session.route";
+import facultyRoutes from "./campus/faculty.routes";
+import studyProgramRoutes from "./campus/studyProgram.routes";
+import cohortRoutes from "./campus/cohort.routes";
+import classRoutes from "./campus/class.routes";
+import studentRoutes from "./campus/student.routes";
+import quetionRoutes from "./quetion/question.routes";
+import cutOffRoutes from "./quetion/srqCutOff.routes";
+import screeningScheduleRoutes from "./screening/screeningSchedule.routes";
+import screeningSessionRoutes from "./screening/screeningSession.routes";
+import screeningResultRoutes from "./screening/screeningResult.routes";
+import followUpRoutes from "./screening/followUp.routes";
+import dashboardRoutes from "./dashboard/dashboard.routes";
+
+const router = Router();
+
+router.use("/auth", authRoutes);
+router.use("/user", userRoutes);
+router.use("/role", roleRoutes);
+router.use("/permission", permissionRoutes);
+router.use("/audit-logs", auditLogRoutes);
+router.use("/session", sessionRoutes);
+router.use("/faculty", facultyRoutes);
+router.use("/study-program", studyProgramRoutes);
+router.use("/cohort", cohortRoutes);
+router.use("/class", classRoutes);
+router.use("/student", studentRoutes);
+router.use("/quetions", quetionRoutes);
+router.use("/cut-off", cutOffRoutes);
+router.use("/screening-schedule", screeningScheduleRoutes);
+router.use("/screening-session", screeningSessionRoutes);
+router.use("/screening-result", screeningResultRoutes);
+router.use("/follow-up", followUpRoutes);
+router.use("/dashboard", dashboardRoutes);
+
+export default router;
