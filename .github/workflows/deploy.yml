@@ -33,7 +33,7 @@ jobs:
           SOURCE: "dist/ package.json package-lock.json"
           REMOTE_HOST: ${{ secrets.VPS_IP }}
           REMOTE_USER: ${{ secrets.VPS_USER }}
-          TARGET: "/var/www/backend-screening"
+          TARGET: "/var/www/screening-backend"
           REMOTE_PORT: ${{ secrets.VPS_PORT }}
           EXCLUDE: "/node_modules/, /.env"
 
@@ -48,16 +48,16 @@ jobs:
             export NVM_DIR="$HOME/.nvm"
             [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 
-            cd /var/www/backend-screening
+            cd /var/www/screening-backend
 
             # Pasang node_modules khusus production
             npm ci --omit=dev
 
             # Jalankan entrypoint hasil build (misal dist/main.js atau dist/index.js)
-            pm2 describe backend-screening > /dev/null 2>&1
+            pm2 describe screening-backend > /dev/null 2>&1
             if [ $? -eq 0 ]; then
-              pm2 reload backend-screening
+              pm2 reload screening-backend
             else
-              pm2 start dist/main.js --name "backend-screening"
+              pm2 start dist/main.js --name "screening-backend"
             fi
             pm2 save
