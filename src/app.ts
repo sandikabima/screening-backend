@@ -84,7 +84,7 @@ const apiLimiter = rateLimit({
 
 app.use(apiLimiter);
 
-app.get("/", (_req, res) => {
+app.get("/welcome", (_req, res) => {
   res.json({
     status: "OK",
     message: "Welcome to Mental Health Screening",
