@@ -24,7 +24,7 @@ const envSchema = z.object({
   CORS_ORIGIN: z.string().default("http://localhost:3000"),
 
   RATE_LIMIT_WINDOW_MS: z.coerce.number().default(900000),
-  RATE_LIMIT_MAX_REQUESTS: z.coerce.number().default(100),
+  RATE_LIMIT_MAX_REQUEST: z.coerce.number().default(100),
 
   LOG_LEVEL: z.string().default("info"),
   LOG_FILE_MAX_SIZE: z.coerce.number().default(5242880),
@@ -76,7 +76,7 @@ export const config = {
   },
   rateLimit: {
     windowMs: _env.RATE_LIMIT_WINDOW_MS,
-    max: _env.RATE_LIMIT_MAX_REQUESTS,
+    max: _env.RATE_LIMIT_MAX_REQUEST,
   },
   logging: {
     level: _env.LOG_LEVEL,
